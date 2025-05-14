@@ -1,9 +1,12 @@
 package com.ut7.ej2.model;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -15,13 +18,15 @@ public class Autor {
 
     private String nombre;
     private String nacionalidad;
-    private Libro libros;
+
+    @OneToMany(mappedBy = "autor")
+    private List<Libro> libros;
     
     public Autor(){
 
     }
 
-    public Autor(String nombre, String nacionalidad, Libro libros) {
+    public Autor(String nombre, String nacionalidad, List<Libro> libros) {
         this.nombre = nombre;
         this.nacionalidad = nacionalidad;
         this.libros = libros;
@@ -51,11 +56,11 @@ public class Autor {
         this.nacionalidad = nacionalidad;
     }
 
-    public Libro getLibros() {
+    public List<Libro> getLibros() {
         return libros;
     }
 
-    public void setLibros(Libro libros) {
+    public void setLibros(List<Libro> libros) {
         this.libros = libros;
     }
 

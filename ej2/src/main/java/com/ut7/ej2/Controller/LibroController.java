@@ -1,4 +1,4 @@
-package com.ut7.ej2.Controller;
+package com.ut7.ej2.controller;
 
 import com.ut7.ej2.model.Libro;
 import com.ut7.ej2.service.LibroService;

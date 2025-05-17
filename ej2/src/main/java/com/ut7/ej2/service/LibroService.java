@@ -43,8 +43,7 @@ public class LibroService {
     
     public Libro crearLibro(Libro libro) {
         if (libro.getAutor() != null && libro.getAutor().getId() != null) {
-            Autor autor = autorRepository.findById(libro.getAutor().getId())
-                    .orElseThrow(() -> new RuntimeException("Autor no encontrado"));
+            Autor autor = autorRepository.findById(libro.getAutor().getId()).orElse(null);
             libro.setAutor(autor);
         } else {
             libro.setAutor(null);

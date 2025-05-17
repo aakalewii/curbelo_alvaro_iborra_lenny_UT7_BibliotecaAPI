@@ -1,4 +1,4 @@
-package com.ut7.ej2.controller;
+package com.ut7.ej2.Controller;
 
 import java.util.List;
 import java.util.Optional;

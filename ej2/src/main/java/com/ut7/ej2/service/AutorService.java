@@ -15,13 +15,19 @@ public class AutorService {
     @Autowired
     private AutorRepository autorRepository;
 
+    // Listar todos los autores
+
     public List<Autor> getAllAutores() {
         return autorRepository.findAll();
     }
 
+    // Buscar autor por ID
+
     public Optional<Autor> getAutorById(Long id) {
         return autorRepository.findById(id);
     }
+
+    // Crear nuevo autor
 
     public Autor crearAutor(Autor autor) {
         return autorRepository.save(autor);

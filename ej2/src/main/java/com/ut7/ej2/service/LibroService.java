@@ -20,21 +20,31 @@ public class LibroService {
         this.autorRepository = autorRepository;
     }
 
+    // Listar todos los libros
+
     public List<Libro> getAllLibros() {
         return libroRepository.findAll();
     }
+
+    // Buscar libro por ID
 
     public Optional<Libro> getLibroById(Long id) {
         return libroRepository.findById(id);
     }
 
+    // Guardar libro
+
     public Libro saveLibro(Libro libro) {
         return libroRepository.save(libro);
     }
 
+    // Eliminar libro por ID
+
     public void deleteLibro(Long id) {
         libroRepository.deleteById(id);
     }
+
+    // Actualizar libro 
 
     public void updateLibro(Long id, Libro libro) {
         libro.setId(id);
@@ -42,13 +52,14 @@ public class LibroService {
     }
     
     public Libro crearLibro(Libro libro) {
+        // Vincula el libro a un autor si existe, si no, lo deja en null
         if (libro.getAutor() != null && libro.getAutor().getId() != null) {
             Autor autor = autorRepository.findById(libro.getAutor().getId()).orElse(null);
             libro.setAutor(autor);
         } else {
             libro.setAutor(null);
         }
-        return libroRepository.save(libro);
+        return libroRepository.save(libro);// Crear nuevo libro
     }
 
 }

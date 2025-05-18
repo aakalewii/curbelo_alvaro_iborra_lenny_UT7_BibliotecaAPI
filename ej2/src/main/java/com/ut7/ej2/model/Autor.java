@@ -20,11 +20,15 @@ public class Autor {
     private String nacionalidad;
 
     @OneToMany(mappedBy = "autor")
-    private List<Libro> libros;
+    private List<Libro> libros;// Relación: un autor tiene muchos libros
     
+
+
     public Autor(){
 
     }
+
+    // Getters, setters y constructores
 
     public Autor(String nombre, String nacionalidad, List<Libro> libros) {
         this.nombre = nombre;

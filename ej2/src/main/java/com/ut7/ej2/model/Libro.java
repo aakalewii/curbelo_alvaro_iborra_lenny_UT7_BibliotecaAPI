@@ -21,10 +21,12 @@ public class Libro {
 
     @ManyToOne
     @JoinColumn(name = "autor_id") 
-    private Autor autor;
+    private Autor autor;// Relación: muchos libros pueden tener un mismo autor
     
     public Libro() {
     }
+
+    // Getters, setters y constructores
 
     public Libro(String titulo, String isbn, int anioPublicacion, Autor autor) {
         this.titulo = titulo;

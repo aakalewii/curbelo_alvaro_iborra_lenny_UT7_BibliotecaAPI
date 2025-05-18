@@ -3,7 +3,6 @@ package com.ut7.ej2.Controller;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +17,7 @@ import com.ut7.ej2.repository.AutorRepository;
 @RequestMapping("/v1/autores")
 public class AutorController {
 
-    @Autowired
+
     private AutorRepository autorRepository;
 
     // Listar autores

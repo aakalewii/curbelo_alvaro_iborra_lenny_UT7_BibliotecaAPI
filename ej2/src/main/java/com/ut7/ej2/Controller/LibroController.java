@@ -20,8 +20,13 @@ import com.ut7.ej2.service.LibroService;
 public class LibroController {
 
 
-    private LibroService libroService;
+    private final LibroService libroService;
 
+    
+
+    public LibroController(LibroService libroService) {
+        this.libroService = libroService;
+    }
 
     // Obtener todos los libros
     @GetMapping

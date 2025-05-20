@@ -18,7 +18,11 @@ import com.ut7.ej2.repository.AutorRepository;
 public class AutorController {
 
 
-    private AutorRepository autorRepository;
+    private final AutorRepository autorRepository;
+
+    public AutorController(AutorRepository autorRepository) {
+        this.autorRepository = autorRepository;
+    }
 
     // Listar autores
     @GetMapping

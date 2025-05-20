@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-Ej2Application<ej2>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.ut7.ej2.Ej2Application",
+            "projectName": "ej2",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

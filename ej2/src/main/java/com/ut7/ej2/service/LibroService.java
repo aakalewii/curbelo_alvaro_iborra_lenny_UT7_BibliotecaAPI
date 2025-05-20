@@ -3,6 +3,7 @@ package com.ut7.ej2.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.ut7.ej2.model.Autor;
@@ -60,6 +61,24 @@ public class LibroService {
             libro.setAutor(null);
         }
         return libroRepository.save(libro);// Crear nuevo libro
+    }
+
+    public List<Libro> buscarLibros(
+        String titulo,
+        Integer anioPublicacion,
+        Sort sort
+    ) {
+        // Buscar libros por título y año de publicación
+        if (titulo != null && !titulo.isEmpty() && anioPublicacion != null) {
+        return libroRepository.findByTituloContainingIgnoreCaseAndAnioPublicacion(titulo, anioPublicacion, sort);
+        } else if (titulo != null && !titulo.isEmpty()) {
+            return libroRepository.findByTituloContainingIgnoreCase(titulo, sort);
+        } else if (anioPublicacion != null) {
+            return libroRepository.findByAnioPublicacion(anioPublicacion, sort);
+        } else {
+            return libroRepository.findAll(sort);
+        }
+
     }
 
 }
